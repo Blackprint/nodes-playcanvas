@@ -1,16 +1,16 @@
 {
-  "name": "bp-your-library-name",
-  "description": "Description for your Blackprint nodes",
+  "name": "@blackprint/nodes-playcanvas",
+  "description": "Blackprint nodes for PlayCanvas",
   "version": "0.0.1",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/your/repository.git"
+    "url": "https://github.com/Blackprint/nodes-playcanvas.git"
   },
-  "module": "dist/nodes-rename-me.mjs",
+  "module": "dist/nodes-playcanvas.mjs",
   "scripts": {
     "start": "blackprint serve",
-    "test": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest.js --verbose ./tests/",
+    "test": "jest --verbose ./tests/",
     "build-prod": "blackprint build production"
   },
   "devDependencies": {

@@ -23,17 +23,17 @@ jest.setTimeout(60e3); // 1 minute
 // This may took longer to finish if also loading additional modules
 test("Load required modules", async () => {
 	// Alternative for Blackprint.loadModuleFromURL(...);
-	await import("../dist/nodes-rename-me.mjs"); // For Browser/Node.js
+	await import("../dist/nodes-playcanvas.mjs"); // For Browser/Node.js
 
 	// Wait and avoid Jest's test environment being torn down
-	await Blackprint.getContext('Your/Module/Name');
+	await Blackprint.getContext('PlayCanvas');
 	await new Promise(resolve => setTimeout(resolve, 1000));
 
 	// Check if the nodes has been registered
-	expect(Blackprint.nodes['LibraryName']).toBeDefined();
+	expect(Blackprint.nodes['PlayCanvas']).toBeDefined();
 });
 
 test("Create a node", async () => {
-	instance.createNode('LibraryName/FeatureName/Template', {id: 'The_ID'});
+	instance.createNode('PlayCanvas/FeatureName/Template', {id: 'The_ID'});
 	expect(instance.iface.The_ID).toBeDefined();
 });

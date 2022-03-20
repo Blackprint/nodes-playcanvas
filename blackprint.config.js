@@ -1,7 +1,7 @@
 module.exports = {
 	// Your unique package name, will be the prefix on the Blackprint editor
-	name: "Empty Template",
-	description: "Your awesome nodes",
+	name: "PlayCanvas",
+	description: "Blackprint nodes for PlayCanvas",
 
 	// If this set to true, the compiler will skip this config/module
 	disabled: false,
@@ -11,21 +11,21 @@ module.exports = {
 	// hardlinkTo: "./dist",
 
 	// Unique prefix for .html or .sf template
-	// Please use format 'BPIC/LibraryName'
-	templatePrefix: "BPIC/LibraryName",
+	// Please use format 'BPIC/PlayCanvas'
+	templatePrefix: "BPIC/PlayCanvas",
 
 	// Optional: Add header to every combined file
-	header: "/* Your Nodes \n MIT Licensed */",
+	header: "/* MIT Licensed */",
 
 	// (Required)
 	// The .js file probably can be imported for non-browser too
 	// Maybe you want to write Node.js compatible node on ".js"
 	// and browser compatible node on ".sf" file extension
 	js:{
-		file:'@cwd/dist/nodes-rename-me.mjs', // @cwd = directory where you start the Node.js
+		file:'@cwd/dist/nodes-playcanvas.mjs', // @cwd = directory where you start the Node.js
 
 		// We're not using `await imports.task()` so let's just use `mjs`
-		wrapped: 'mjs', // Wrap the entire .js to .mjs
+		wrapped: 'async-mjs', // Wrap the entire .js to .mjs
 
 		combine:[ // Relative to this config's directory
 			'src/_init.js', // Rule order/index may have different priority
@@ -37,7 +37,7 @@ module.exports = {
 	// This extension can contain html, scss, and js
 	// But only use this if you only develop for browser API
 	sf:{
-		file:'@cwd/dist/nodes-rename-me.sf', // will have sf.css and sf.mjs
+		file:'@cwd/dist/nodes-playcanvas.sf', // will have sf.css and sf.mjs
 
 		// Use `async-mjs` if we want to use `await imports.task()` to avoid waiting this module
 		wrapped: 'async-mjs', // Wrap the entire .js in async IIFE to .mjs file

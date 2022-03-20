@@ -34,11 +34,11 @@ test("Load required modules", async () => {
 	Blackprint.Environment.isNode = true;
 
 	// Alternative for Blackprint.loadModuleFromURL(...);
-	await import("../dist/nodes-rename-me.mjs"); // For Browser/Node.js
-	await import("../dist/nodes-rename-me.sf.mjs"); // For Browser UI
+	await import("../dist/nodes-playcanvas.mjs"); // For Browser/Node.js
+	await import("../dist/nodes-playcanvas.sf.mjs"); // For Browser UI
 
 	// Wait and avoid Jest's test environment being torn down
-	await Blackprint.getContext('Your/Module/Name');
+	await Blackprint.getContext('PlayCanvas');
 	await new Promise(resolve => setTimeout(resolve, 1000));
 
 	// Reset to browser environment
@@ -46,10 +46,10 @@ test("Load required modules", async () => {
 	Blackprint.Environment.isNode = false;
 
 	// Check if the nodes has been registered
-	expect(Blackprint.nodes['LibraryName']).toBeDefined();
+	expect(Blackprint.nodes['PlayCanvas']).toBeDefined();
 });
 
 test("Create a node", async () => {
-	instance.createNode('LibraryName/FeatureName/Template', {id: 'The_ID'});
+	instance.createNode('PlayCanvas/FeatureName/Template', {id: 'The_ID'});
 	expect(instance.iface.The_ID).toBeDefined();
 });

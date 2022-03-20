@@ -4,6 +4,9 @@
 ## Blackprint nodes for PlayCanvas
 Still work in progress
 
+## Example
+1. [Simple box](https://blackprint.github.io/#page/sketch/1#;importSketch:jZHLboMwEEX_ZdYUmxgIsErComrVRdUsq6gyxgSnxljYiRJF_HsplAr6ULu17j3HM3OFF0iuUNX5UfL7LSTPUFqrTYIQy5V7MDmX4tS4ilu0L9FGUvaqG6EsUnXOzY2W9MKoOlGzCmnM8ijLQlZgmsUEB1kUFiQOOAkIoVGYUewvcfGt6VYHA87vXqUrtMq-mFfY9V2McmHGr7BamVrynrZrHXjsBGkvQFvGFUcPYl_absIrCEiwA2dIvMhz4AKJ78cO1Eerj_Z9HbMkcUDRikMCaSlkDu2ubXc_4NMu1NCx5Q18THo-8YMpfx79r2BTn8fKYqAHfk9fhHhKn-T-Rq-1loJRK2qFhqdJt-OQ5TCBh6Op404ZSxXjY9j_FK3VZdSkw0XQLbdPvOANnxc6-jL-2I_ndZ03)
+
 ## Import this nodes from URL
 Please specify the version to avoid breaking changes.
 

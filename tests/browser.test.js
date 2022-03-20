@@ -18,7 +18,7 @@ require("@blackprint/sketch/dist/blackprint.sf.js");
 
 
 let instance = null;
-test('Blackprint.Sketch does exist on window', async () => {
+test.only('Blackprint.Sketch does exist on window', async () => {
 	expect(window.Blackprint.Sketch).toBeDefined();
 
 	// Create an instance where we can create nodes or import JSON
@@ -50,6 +50,6 @@ test("Load required modules", async () => {
 });
 
 test("Create a node", async () => {
-	instance.createNode('PlayCanvas/FeatureName/Template', {id: 'The_ID'});
+	instance.createNode('PlayCanvas/Application/Canvas', {id: 'The_ID'});
 	expect(instance.iface.The_ID).toBeDefined();
 });

@@ -5,8 +5,11 @@
 Still work in progress
 
 ## Example
+If you didn't see the import modal, please refresh the page.
+
 1. [Simple box](https://blackprint.github.io/#page/sketch/1#;importSketch:jZHLboMwEEX_ZdYUmxgIsErComrVRdUsq6gyxgSnxljYiRJF_HsplAr6ULu17j3HM3OFF0iuUNX5UfL7LSTPUFqrTYIQy5V7MDmX4tS4ilu0L9FGUvaqG6EsUnXOzY2W9MKoOlGzCmnM8ijLQlZgmsUEB1kUFiQOOAkIoVGYUewvcfGt6VYHA87vXqUrtMq-mFfY9V2McmHGr7BamVrynrZrHXjsBGkvQFvGFUcPYl_absIrCEiwA2dIvMhz4AKJ78cO1Eerj_Z9HbMkcUDRikMCaSlkDu2ubXc_4NMu1NCx5Q18THo-8YMpfx79r2BTn8fKYqAHfk9fhHhKn-T-Rq-1loJRK2qFhqdJt-OQ5TCBh6Op404ZSxXjY9j_FK3VZdSkw0XQLbdPvOANnxc6-jL-2I_ndZ03)
 
+<!--
 ## Import this nodes from URL
 Please specify the version to avoid breaking changes.
 
@@ -19,12 +22,31 @@ Blackprint.loadModuleFromURL([
   loadBrowserInterface: true // set to "false" for Node.js/Deno
 });
 ```
+-->
 
 ## Development URL
-You can use this link to load unpublished nodes and still under development on GitHub.
-> `https://cdn.jsdelivr.net/gh/Blackprint/nodes-playcanvas@dist/nodes-playcanvas.mjs?1`
+You can use this link to load unpublished nodes and still under development on GitHub.<br>
+https://cdn.jsdelivr.net/gh/Blackprint/nodes-playcanvas@dist/nodes-playcanvas.mjs?1
 
-Please append `/url-here?random-number` if your browser still using the cached files after the repository was updated.
+Please append `/url-here?random-number` if your browser still using the cached files after the repository was updated. It's recommended to use full commit hash from the `dist` branch.
+
+## Local module server for development
+```sh
+$ cd /your/project/folder
+$ git clone --depth 1 --recurse-submodules https://github.com/Blackprint/nodes-playcanvas.git .
+$ pnpm i
+$ npm start
+ >> [Browsersync] Access URLs:
+ >> -----------------------------------
+ >> Local: http://localhost:6789
+ >> -----------------------------------
+```
+
+Copy the `http://localhost:6789` URL and go to online Blackprint Editor. <br>
+Go to development mode, and paste it to remote module server. Then refresh the page, after that you can modify the code from your favorite text editor.
+
+![brave_7NcrWUt66n](https://user-images.githubusercontent.com/11073373/159176092-7271f980-2a70-4e38-8830-e9746170426d.png)
+
 
 ### License
 MIT

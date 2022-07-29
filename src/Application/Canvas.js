@@ -1,12 +1,20 @@
+/**
+ * Create new PlayCanvas instance and the canvas for rendering
+ * @param Child PlayCanvas's entities
+ * @returns Output port
+ */
 Blackprint.registerNode("PlayCanvas/Application/Canvas",
-class EmptyNode extends Blackprint.Node {
+class extends Blackprint.Node {
 	static input = {
-		Child: Blackprint.Port.ArrayOf(PlayCanvas.Entity)
+		/** PlayCanvas's entities */
+		Child: Blackprint.Port.ArrayOf(PlayCanvas.Entity),
 	}
 
 	static output = {
-		Canvas: HTMLCanvasElement,
+		/** PlayCanvas's instance */
 		Instance: PlayCanvas.Application,
+		/** PlayCanvas's canvas for displaying scenes */
+		Canvas: HTMLCanvasElement,
 	}
 
 	constructor(instance){
@@ -14,7 +22,6 @@ class EmptyNode extends Blackprint.Node {
 
 		let iface = this.setInterface("BPIC/PlayCanvas/Application/Canvas");
 		iface.title = "Canvas";
-		iface.description = "PlayCanvas";
 	}
 });
 

@@ -17,14 +17,15 @@ module.exports = {
 	// Optional: Add header to every combined file
 	header: "/* MIT Licensed */",
 
+	// Optional: Extract registerNode's JSDocs
+	bpDocs: '@cwd/dist/nodes-playcanvas.docs.json',
+
 	// (Required)
 	// The .js file probably can be imported for non-browser too
 	// Maybe you want to write Node.js compatible node on ".js"
 	// and browser compatible node on ".sf" file extension
 	js:{
 		file:'@cwd/dist/nodes-playcanvas.mjs', // @cwd = directory where you start the Node.js
-
-		// We're not using `await imports.task()` so let's just use `mjs`
 		wrapped: 'async-mjs', // Wrap the entire .js to .mjs
 
 		combine:[ // Relative to this config's directory

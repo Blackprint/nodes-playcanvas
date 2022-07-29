@@ -33,7 +33,7 @@ Please append `/url-here?random-number` if your browser still using the cached f
 ## Local module server for development
 ```sh
 $ cd /your/project/folder
-$ git clone --depth 1 --recurse-submodules https://github.com/Blackprint/nodes-playcanvas.git .
+$ git clone --depth 1 --recursive https://github.com/Blackprint/nodes-playcanvas.git .
 $ pnpm i
 $ npm start
  >> [Browsersync] Access URLs:

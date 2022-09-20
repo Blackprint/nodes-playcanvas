@@ -1,5 +1,5 @@
 Blackprint.registerNode("PlayCanvas/Scene/Light",
-class EmptyNode extends Blackprint.Node {
+class extends Blackprint.Node {
 	static input = {};
 	static output = {
 		Light: PlayCanvas.Entity,

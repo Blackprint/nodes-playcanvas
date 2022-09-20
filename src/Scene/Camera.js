@@ -1,5 +1,5 @@
 Blackprint.registerNode("PlayCanvas/Scene/Camera",
-class EmptyNode extends Blackprint.Node {
+class extends Blackprint.Node {
 	static input = {
 		// ToDo: rotate, translate
 	};

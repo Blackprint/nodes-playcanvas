@@ -1,16 +1,22 @@
-Blackprint.registerNode("PlayCanvas/Scene/Box",
-class extends Blackprint.Node {
-	static input = {};
+import Blackprint from "@blackprint/sketch";
+import PlayCanvas from "playcanvas";
+
+/**
+ * Create Box
+ * @summary PlayCanvas
+ * @blackprint node
+ */
+@Blackprint.registerNode("PlayCanvas/Scene/Box")
+export class Node extends Blackprint.Node<typeof Node> {
 	static output = {
 		Box: PlayCanvas.Entity,
 	};
 
-	constructor(instance){
+	constructor(instance: Blackprint.Engine){
 		super(instance);
 
 		let iface = this.setInterface();
 		iface.title = "Box";
-		iface.description = "PlayCanvas";
 	}
 
 	init(){
@@ -24,8 +30,8 @@ class extends Blackprint.Node {
 			type: "box",
 			material: material,
 		});
-	
+
 		// temp.setLocalScale(50, 1, 50);
 		// temp.setLocalPosition(0, -0.5, 0);
 	}
-});
+}

@@ -10,19 +10,23 @@
   "module": "dist/nodes-playcanvas.mjs",
   "scripts": {
     "start": "blackprint serve",
-    "test": "jest --verbose ./tests/",
+    "test": "node --experimental-vm-modules --no-warnings node_modules/jest/bin/jest.js --verbose ./tests/",
     "build-prod": "blackprint build production"
   },
   "devDependencies": {
-    "scarletsframe": "0.35.x",
+    "@blackprint/cli-tools": "0.3.x",
     "@blackprint/engine": "0.8.x",
     "@blackprint/sketch": "0.8.x",
-    "@blackprint/cli-tools": "0.3.x",
     "jest": "29.x",
+    "jest-environment-jsdom": "29.x",
     "jest-environment-node": "29.x",
-    "jest-environment-jsdom": "29.x"
+    "esbuild-plugin-import-glob": "0.1.1",
+    "scarletsframe": "0.35.x"
   },
   "keywords": [
     "blackprint"
-  ]
+  ],
+  "dependencies": {
+    "playcanvas": "^1.59.0"
+  }
 }

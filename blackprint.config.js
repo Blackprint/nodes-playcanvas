@@ -1,3 +1,5 @@
+let blackprint = require('@blackprint/cli-tools').esbuildPlugin;
+
 module.exports = {
 	// Your unique package name, will be the prefix on the Blackprint editor
 	name: "PlayCanvas",
@@ -20,25 +22,16 @@ module.exports = {
 	// Optional: Extract registerNode's JSDocs
 	bpDocs: '@cwd/dist/nodes-playcanvas.docs.json',
 
-	// (Required)
-	// The .js file probably can be imported for non-browser too
-	// Maybe you want to write Node.js compatible node on ".js"
-	// and browser compatible node on ".sf" file extension
-	js:{
-		file:'@cwd/dist/nodes-playcanvas.mjs', // @cwd = directory where you start the Node.js
-		wrapped: 'async-mjs', // Wrap the entire .js to .mjs
-
-		combine:[ // Relative to this config's directory
-			'src/_init.js', // Rule order/index may have different priority
-			'src/**/*.js',
-		],
+	hotReload: {
+		sf: true,
+		ts: true,
 	},
 
 	// (Optional)
 	// This extension can contain html, scss, and js
 	// But only use this if you only develop for browser API
 	sf:{
-		file:'@cwd/dist/nodes-playcanvas.sf', // will have sf.css and sf.mjs
+		file: '@cwd/dist/nodes-playcanvas.sf', // will have sf.css and sf.mjs
 
 		// Use `async-mjs` if we want to use `await imports.task()` to avoid waiting this module
 		wrapped: 'async-mjs', // Wrap the entire .js in async IIFE to .mjs file
@@ -47,5 +40,33 @@ module.exports = {
 			'src/_init.sf', // Rule order/index may have different priority
 			'src/**/*.sf',
 		],
+	},
+
+	// (Required), `ts` config can't be used with `js` config
+	ts: {
+		// @cwd = directory where you start the Node.js
+		file: '@cwd/dist/nodes-playcanvas.mjs',
+
+		// Directory below is relative to this config's directory
+		entry: '_entry.ts',
+		watch: ['src/**/*.ts'],
+		scanDocs: ['src/**/*.ts'],
+		esbuild: {
+			bundle: true,
+			treeShaking: true,
+			format: 'esm',
+			// logLevel: 'debug',
+			plugins: [
+				require('esbuild-plugin-import-glob').default(),
+				blackprint.init(()=> module.exports),
+
+				// The target engine can still load from node_modules if
+				// 'Blackprint.Environment.loadFromURL' was set to false
+				blackprint.preferCDN('src', {
+					// module_name: bundled module URL
+					'playcanvas': 'https://cdn.jsdelivr.net/npm/playcanvas@1.x/build/playcanvas.mjs',
+				})
+			]
+		},
 	}
 }

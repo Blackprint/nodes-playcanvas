@@ -1,10 +1,13 @@
+import { Context } from "_context";
+import Blackprint from "@blackprint/sketch";
+import PlayCanvas from "playcanvas";
+
 /**
- * Create new PlayCanvas instance and the canvas for rendering
- * @param Child PlayCanvas's entities
- * @returns Output port
+ * PlayCanvas Application
+ * @blackprint node
  */
-Blackprint.registerNode("PlayCanvas/Application/Canvas",
-class extends Blackprint.Node {
+@Blackprint.registerNode("PlayCanvas/Application/Canvas")
+export class Node extends Blackprint.Node<typeof Node> {
 	static input = {
 		/** PlayCanvas's entities */
 		Child: Blackprint.Port.ArrayOf(PlayCanvas.Entity),
@@ -17,21 +20,21 @@ class extends Blackprint.Node {
 		Canvas: HTMLCanvasElement,
 	}
 
-	constructor(instance){
+	constructor(instance: Blackprint.Engine){
 		super(instance);
 
 		let iface = this.setInterface("BPIC/PlayCanvas/Application/Canvas");
 		iface.title = "Canvas";
 	}
-});
+}
 
-Blackprint.registerInterface('BPIC/PlayCanvas/Application/Canvas',
-Context.IFace.EngineCreateCanvas = class IMyTemplate extends Blackprint.Interface {
-	constructor(node){
+@Blackprint.registerInterface("BPIC/PlayCanvas/Application/Canvas")
+export class Interface extends Blackprint.Interface<Node> {
+	constructor(node: Node){
 		super(node);
 
 		let canvas = this.canvas = document.createElement('canvas');
-		canvas.touchAction = "none";
+		canvas.style.touchAction = "none";
 
 		canvas.width = 360;
 		canvas.height = 240;
@@ -57,4 +60,7 @@ Context.IFace.EngineCreateCanvas = class IMyTemplate extends Blackprint.Interfac
 	destroy(){
 		this.ref.Output.Instance.destroy();
 	}
-});
+}
+
+// Make sure to save it to the Context, so we can access it from .sf extension
+Context.IFace["Application/Canvas"] = Interface;

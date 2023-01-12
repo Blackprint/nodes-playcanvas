@@ -1,16 +1,23 @@
-Blackprint.registerNode("PlayCanvas/Scene/Light",
-class extends Blackprint.Node {
+import Blackprint from "@blackprint/sketch";
+import PlayCanvas from "playcanvas";
+
+/**
+ * Create Light
+ * @summary PlayCanvas
+ * @blackprint node
+ */
+@Blackprint.registerNode("PlayCanvas/Scene/Light")
+export class Node extends Blackprint.Node<typeof Node> {
 	static input = {};
 	static output = {
 		Light: PlayCanvas.Entity,
 	};
 
-	constructor(instance){
+	constructor(instance: Blackprint.Engine){
 		super(instance);
 
 		let iface = this.setInterface();
 		iface.title = "Light";
-		iface.description = "PlayCanvas";
 	}
 
 	init(){
@@ -28,4 +35,4 @@ class extends Blackprint.Node {
 	
 		temp.setLocalEulerAngles(45, 30, 0);
 	}
-});
+}

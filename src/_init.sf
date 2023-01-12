@@ -17,6 +17,9 @@ let Blackprint = window.Blackprint.loadScope({
 // Use sQuery
 let $ = sf.$;
 
+// Wait until all module has been loaded before load .sf files
+await sf.loader.task;
+
 // Global shared context (wait it to avoid race condition)
 let Context = await Blackprint.getContext('PlayCanvas');
 

@@ -27,7 +27,7 @@ bpic-playcanvas-application-canvas { // Element name based on file path
 
 ## js-global
 Blackprint.Sketch.registerInterface('BPIC/PlayCanvas/Application/Canvas',
-class EngineCreateCanvasIFace extends Context.IFace.EngineCreateCanvas {
+class extends Context.IFace["Application/Canvas"] {
   // this == iface
 
   init(el){

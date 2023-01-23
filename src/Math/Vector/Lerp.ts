@@ -6,7 +6,7 @@ import PlayCanvas from "playcanvas";
  * @summary PlayCanvas
  * @blackprint node
  */
-@Blackprint.registerNode("PlayCanvas/Math/Vector/ClampLength")
+@Blackprint.registerNode("PlayCanvas/Math/Vector/Lerp")
 export class Node extends Blackprint.Node<typeof Node> {
 	static input = {
 		Vector: Blackprint.Port.Union([PlayCanvas.Vec2, PlayCanvas.Vec3, PlayCanvas.Vec4]),
@@ -21,7 +21,7 @@ export class Node extends Blackprint.Node<typeof Node> {
 		super(instance);
 
 		let iface = this.setInterface();
-		iface.title = "Clamp Length";
+		iface.title = "Lerp";
 	}
 
 	update() {

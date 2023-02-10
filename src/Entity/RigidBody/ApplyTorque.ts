@@ -9,7 +9,9 @@ import PlayCanvas from "playcanvas";
 @Blackprint.registerNode("PlayCanvas/Entity/RigidBody/ApplyTorque")
 export class Node extends Blackprint.Node<typeof Node> {
 	static input = {
+		/** Entity to apply the torque into */
 		Entity: Blackprint.Port.Union([PlayCanvas.GraphNode, PlayCanvas.Entity]),
+		/** Torque's vector (x,y,z) */
 		Vec3: PlayCanvas.Vec3,
 	};
 
